@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const getBearer = (token = '') => {
-    const bearer = token ? `Bearer ${token}` : '';
-    return bearer;
-};
+// const getBearer = (token = '') => {
+//     const bearer = token ? `Bearer ${token}` : '';
+//     return bearer;
+// };
 
-export function api(token) {
+export function api() {
     return axios.create({
-        baseURL: 'http://yourbaseurl.com',
+        baseURL: 'http://vm-tes-mon-navios.westus2.cloudapp.azure.com:5000/',
         headers: {
-            Authorization: getBearer(token),
+            // Authorization: getBearer(token),
             'Content-Type': 'application/json-patch+json',
         },
     });
