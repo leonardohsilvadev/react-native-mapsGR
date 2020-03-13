@@ -60,7 +60,10 @@ export function HomeScreen() {
           }}
           title={navio.name}
           description={`
-            Tipo do navio: 
+            Tipo do navio: ${navio.type}
+            Velocidade do navio: ${navio.speed}
+            Largura do navio: ${navio.width}
+            Comprimento do navio: ${navio.length}
           `}
         />
         </View>
