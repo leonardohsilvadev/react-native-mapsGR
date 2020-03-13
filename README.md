@@ -1,9 +1,9 @@
-<h1 align="center">Nxtsh React Native Maps GR 👋</h1>
+<h1 align="center">Nxtsh React Native Maps GR 🗺️</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Boilerplate created to help start react-native projects with integration of redux and other standard libraries // Boilerplate criado para auxíliar no início de projetos react-native com integração do redux e outras bibliotecas padrões
+> Aplicação criada como base para desenvolvimeno de outras aplicações utilizando mapas.
 
 ## Content
 
@@ -18,6 +18,8 @@ npm install
 ## Usage
 
 ```sh
+Put your Google Maps Api Key inside android/app/src/main/AndroidManifest.xml below the metadata content of com.google.android.geo.API_KEY
+
 npx react-native run-android
 ```
 
