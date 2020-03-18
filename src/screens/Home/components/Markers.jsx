@@ -9,7 +9,7 @@ export const Markers = ({navios}) => {
 
   return (
     <View>
-      {navios && navios.map(navio => (
+      {/* {navios && navios.map(navio => (
       <View>
         <Marker
           coordinate={{
@@ -17,7 +17,7 @@ export const Markers = ({navios}) => {
             longitude: navio.longitude,
           }}          
         >
-          <Image source={require('../../../images/ship-icon.png')} style={{width: 30, height: 50}}/>
+          <Image source={require('../../../assets/ship-icon.png')} style={{width: 30, height: 50}}/>
           <Callout style={Styles.box}>
             <Text>
             {navio.name}
@@ -37,6 +37,6 @@ export const Markers = ({navios}) => {
           </Callout>
         </Marker>
       </View>
-      ))}
+      ))} */}
     </View>
 )};
