@@ -14,4 +14,11 @@ export const Styles = ScaledSheet.create({
     text: {
       fontSize: '16@s'
     },
+    box:{
+      width: '200@s'
+    },
+    markerIcon:{
+      width: '30@s',
+      height: '40@s',
+    }
 });

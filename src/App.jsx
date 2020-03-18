@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from '../src/store';
 const { store, persistor } = configureStore();
+import { LoginScreen } from './screens/Login';
 import { HomeScreen } from './screens/Home';
 import { TodoScreen } from './screens/Todo';
 
@@ -17,6 +18,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Stack.Navigator>
+            <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
             <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
             <Stack.Screen name="Todo" component={TodoScreen} options={{ title: 'Todo' }} />
           </Stack.Navigator>

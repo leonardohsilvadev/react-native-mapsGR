@@ -1,7 +1,8 @@
 import React , {useEffect, useState} from 'react';
-import {HomeList} from './components/HomeList';
+import { Markers } from './components/Markers';
+import { Perimeters } from './components/Perimeters';
 import { View } from 'native-base';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Polyline, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Dimensions } from 'react-native';
 import { Marker } from 'react-native-maps';
 import {api} from '../../utils/api'
@@ -26,6 +27,10 @@ export function HomeScreen() {
   }, [])
 
   const [navios, setNavios] = useState('')
+  const [coordenadas, setCoordenadas] = useState([
+    {name: '2', latitude: -23.979875, longitude:-46.289173}, {name: '1', latitude: -23.979816, longitude: -46.291029},
+    {name: '3', latitude: -23.982210, longitude: -46.291282}, {name: '4', latitude: -23.982214, longitude:-46.289140},
+  ])
 
   function getNavios() {  
     let url = '/api/Navios/getMarineTraffic'
@@ -37,7 +42,7 @@ export function HomeScreen() {
     .catch(err => console.log('Erro ao buscar Navios', err));
   }
 
-  console.log(navios)
+  console.log(coordenadas)
 
   return (
     <View style={styles.container}>
@@ -49,25 +54,17 @@ export function HomeScreen() {
         longitude: -46.291127,
         latitudeDelta: 0.015,
         longitudeDelta: 0.0121,
-      }}
+      }}      
+      maxZoomLevel={20} // default => 20
+      enableZoomControl={true}
+      zoomEnabled = {true}
     >
-      {navios && navios.map(navio => (
-        <View>
-        <Marker
-          coordinate={{
-            latitude: navio.latitude,
-            longitude: navio.longitude,
-          }}
-          title={navio.name}
-          description={`
-            Tipo do navio: ${navio.type}
-            Velocidade do navio: ${navio.speed}
-            Largura do navio: ${navio.width}
-            Comprimento do navio: ${navio.length}
-          `}
-        />
-        </View>
-      ))}
+      <Perimeters
+          coordenadas={coordenadas}
+      />
+      <Markers
+        navios={navios}
+      />
     </MapView>      
   </View>
   )
