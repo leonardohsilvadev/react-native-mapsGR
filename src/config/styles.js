@@ -6,6 +6,7 @@ export const COLOR = {
     ORANGE: '#FF7300',
     DANGER: '#e25b50',
     WARNING: '#fca523',
+    LIGHT_YELLOW: '#EBF9E8',
     LIGHT: '#ffffff',
     LIGHT_GRAY: '#e9e9e9',
     GRAY: '#acacac',

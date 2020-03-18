@@ -1,10 +1,17 @@
 import { ScaledSheet } from "react-native-size-matters";
+import { Dimensions } from 'react-native'
+import { COLOR } from '../../config/styles';
 
-export const Style = ScaledSheet.create({
+export const style = ScaledSheet.create({
+    container: {
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
+        alignItems: 'center',
+    },
     boxLogin:{
         backgroundColor: 'white',
-        height: '80%',
-        width: '80%',
+        height: '600@vs',
+        width: '300@s',
         borderBottomRightRadius: 50,
         borderBottomLeftRadius: 50
     },
@@ -13,43 +20,41 @@ export const Style = ScaledSheet.create({
         marginLeft: 'auto',
         width: 150,
         height: 150,
-        marginTop: 10
+        marginTop: '10@vs'
     },
     fundoNavio:{
         width: '100%',
-        marginTop: 5,
         zIndex: 999,
-        justifyContent: 'flex-end',
     },
     btnEntrar: {
         borderRadius: 30,
-        backgroundColor: '#FF7300',
+        backgroundColor: COLOR.ORANGE,
         marginRight: 'auto',
         marginLeft: 'auto',
         width: '200@s',
         fontWeight: 'bold',        
-        marginTop: 40,
+        marginTop: '40@vs',
         justifyContent: 'center'
     },
     label:{
-        color: '#FF7300',
-        width: '80%',
+        color: COLOR.ORANGE,
+        width: '300@vs',
         marginRight: 'auto',
         marginLeft: 'auto',
         borderColor: 'transparent'
     },
     input:{
         backgroundColor: 'rgba(30,30,30,0.1)',
-        width: '80%',
+        width: '250@s',
         marginRight: 'auto',
         marginLeft: 'auto',
         borderColor: 'transparent'
     },
     title:{
         alignSelf: 'center',
-        fontSize: 24, 
+        fontSize: '24@s', 
         textAlign: 'center', 
-        color: '#1E83B4',
+        color: COLOR.ACCENT,
         marginTop: 10
     }
 });
