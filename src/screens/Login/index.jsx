@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { COLOR, Styles } from '../../config/styles';
 import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import {style} from './styles'
-import { Hr } from '../../components/Hr'
+import { Hr } from '../../components'
 import { useNavigation } from '@react-navigation/native';
 
 const gradientProps = {
