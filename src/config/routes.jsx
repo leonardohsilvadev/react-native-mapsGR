@@ -5,12 +5,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { LoginScreen } from '../screens/Login';
 import { HomeScreen } from '../screens/Home';
 import { ClimatempoScreen } from '../screens/Climatempo';
+import { AlertaScreen } from '../screens/Alertas';
 import { Header, Drawer } from '../components';
 
 export default function Routes() {
     const HomeStack = createStackNavigator();
     const LoginStack = createStackNavigator();
     const ClimatempoStack = createStackNavigator();
+    const AlertaStack = createStackNavigator();
     const DrawerStack = createDrawerNavigator();
     
     const screenOptions = {
@@ -21,7 +23,6 @@ export default function Routes() {
         props => <Drawer {...props} />
     )
     
-
     const LoginStackScreen = () => (
         <LoginStack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
             <LoginStack.Screen name="Login" component={LoginScreen} />
@@ -39,6 +40,12 @@ export default function Routes() {
             <ClimatempoStack.Screen name="Climatempo" component={ClimatempoScreen} />
         </ClimatempoStack.Navigator>
     )
+
+    const AlertaStackScreen = () => (
+        <AlertaStack.Navigator initialRouteName="Alerta" screenOptions={screenOptions}>
+            <AlertaStack.Screen name="Alerta" component={AlertaScreen} />
+        </AlertaStack.Navigator>
+    )
     
     
     const DrawerStackScreen = () => (
@@ -46,6 +53,7 @@ export default function Routes() {
             <DrawerStack.Screen name="Monitoramento" component={HomeStackScreen} />
             <DrawerStack.Screen name="Condicoes" component={ClimatempoStackScreen} />
             <DrawerStack.Screen name="Login" component={LoginStackScreen} />
+            <DrawerStack.Screen name="Alertas" component={AlertaStackScreen} />
         </DrawerStack.Navigator>
     )
 

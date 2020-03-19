@@ -2,7 +2,7 @@ import { ScaledSheet } from "react-native-size-matters";
 import { Dimensions } from 'react-native'
 import { COLOR } from '../../config/styles';
 
-export const style = ScaledSheet.create({
+export const Style = ScaledSheet.create({
     container: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,

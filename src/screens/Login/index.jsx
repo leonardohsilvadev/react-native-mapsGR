@@ -1,37 +1,46 @@
 import React , {useEffect, useState} from 'react';
 import { View, Text, Button, Thumbnail, Content, Form, Item, Input, Label } from 'native-base';
+import { Alert, StyleSheet, Dimensions } from 'react-native';
 import {api} from '../../utils/api'
 import LinearGradient from 'react-native-linear-gradient';
 import { COLOR, Styles } from '../../config/styles';
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
-import {style} from './styles'
-import { Hr } from '../../components'
-import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView, ScrollView } from 'react-native';
+import {Style} from './styles'
+import { Hr } from '../../components/Hr'
 
 const gradientProps = {
   start: { x: 1, y: 0 },
   end: { x: 1, y: 1 },
-  colors: [COLOR.MAIN, COLOR.LIGHT_YELLOW]
+  colors: [COLOR.MAIN, '#EBF9E8']
 };
 
 const logoProps = {
-  style: style.logoLogin,
+  style: Style.logoLogin,
   source: require('../../assets/logo-modal.png'),
   square: true,
 };
 
 const navioProps = {
-  style: style.fundoNavio,
+  style: Style.fundoNavio,
   source: require('../../assets/ship-opacity.png'),
   square: true,
 };
 
+const style = StyleSheet.create({
+  container: {
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    alignItems: 'center',
+    // height: '100%',
+    // justifyContent: 'flex-end',
+    // backgroundColor: 'linear-gradient(180deg, rgba(91,182,252,1) 50%, rgba(235,249,232,1) 80%)'
+  },
+ });
 
 export function LoginScreen() {
   
   const [email, setEmailLogin] = useState('')
   const [password, setSenhaLogin] = useState('')
-  const navigation = useNavigation();
 
   useEffect(() => {
   }, [])
@@ -44,35 +53,34 @@ export function LoginScreen() {
     }
     api('').post(url, body)
     .then(({ data }) => {
-        navigation.navigate('Home')
-        console.log(data)
+      console.log(data)
     })
-    .catch(err => Alert.alert('Login ou senha inválidos'));
+    .catch(err => console.log('Erro ao logar-se', err));
   }
 
 
   return (
     <LinearGradient {...gradientProps}>
-          <SafeAreaView style={style.container}>
-            <View style={style.boxLogin}>
-          {/* <KeyboardAvoidingView behavior="padding" enabled> */}
-                <Thumbnail {...logoProps} />    
-                <Hr/>
-                <Text style={style.title}>MONITORAMENTO DE NAVIOS</Text>
-                <Item stackedLabel last>
-                  <Label style={{borderBottomColor: 'transparent'}} style={style.label}>Email</Label>
-                  <Input style={style.input} onChangeText={value => setEmailLogin(value)}/>
-                </Item>
-                <Item style={{borderBottomColor: 'transparent'}} stackedLabel style={{marginTop: 10}}>
-                  <Label style={style.label}>Senha</Label>
-                  <Input secureTextEntry={true} style={style.input} onChangeText={value => setSenhaLogin(value)}/>
-                </Item>
-                <Text style={{alignSelf: 'flex-end', marginRight: 30,fontSize: 14}}>Esqueceu sua senha?</Text>
-                <Button style={style.btnEntrar} onPress={() => login()}><Text style={{textAlign: "center"}}>Entrar</Text></Button>
-              {/* </KeyboardAvoidingView> */}
-            </View>
-            <Thumbnail {...navioProps} />  
-          </SafeAreaView>
-      </LinearGradient>
+      <ScrollView>
+        <SafeAreaView style={style.container}>
+          <View style={Style.boxLogin}>
+              <Thumbnail {...logoProps} />    
+              <Hr/>
+              <Text style={Style.title}>MONITORAMENTO DE NAVIOS</Text>
+              <Item stackedLabel last>
+                <Label style={{borderBottomColor: 'transparent'}} style={Style.label}>Email</Label>
+                <Input style={Style.input} onChangeText={value => setEmailLogin(value)}/>
+              </Item>
+              <Item style={{borderBottomColor: 'transparent'}} stackedLabel last style={{marginTop: 10}}>
+                <Label style={Style.label}>Senha</Label>
+                <Input secureTextEntry={true} style={Style.input} onChangeText={value => setSenhaLogin(value)}/>
+              </Item>
+              <Text style={{alignSelf: 'flex-end', marginRight: 30,fontSize: 14}}>Esqueceu sua senha?</Text>
+              <Button style={Style.btnEntrar} onPress={() => login()}><Text style={{textAlign: "center"}}>Entrar</Text></Button>
+          </View>
+          <Thumbnail {...navioProps} />  
+        </SafeAreaView>
+      </ScrollView>
+    </LinearGradient>
   )
 }

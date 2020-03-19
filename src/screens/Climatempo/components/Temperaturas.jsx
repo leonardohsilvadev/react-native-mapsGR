@@ -25,9 +25,9 @@ export const Temperatura = ({temperatura}) => {
         <LinearGradient {...cardBlue} style={style.cardBox}>
             <Card style={style.card} transparent>                            
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="weather-sunset-up"
+                    type="MaterialCommunityIcons"
+                    style={style.iconCard}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.titleCard}>
@@ -46,9 +46,9 @@ export const Temperatura = ({temperatura}) => {
         <LinearGradient {...cardOrange} style={style.cardBox}>
             <Card style={style.card} transparent>                            
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="white-balance-sunny"
+                    type="MaterialCommunityIcons"
+                    style={style.iconCard}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.titleCard}>
@@ -67,9 +67,9 @@ export const Temperatura = ({temperatura}) => {
         <LinearGradient {...cardOrange} style={style.cardBox}>
             <Card style={style.card} transparent>                            
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="weather-sunset"
+                    type="MaterialCommunityIcons"
+                    style={style.iconCard}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.titleCard}>
@@ -88,9 +88,9 @@ export const Temperatura = ({temperatura}) => {
         <LinearGradient {...cardBlue} style={style.cardBox}>
             <Card style={style.card} transparent>                            
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="weather-night"
+                    type="MaterialCommunityIcons"
+                    style={style.iconCard}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.titleCard}>

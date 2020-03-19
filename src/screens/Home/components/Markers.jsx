@@ -9,7 +9,7 @@ export const Markers = ({navios}) => {
 
   return (
     <View>
-      {/* {navios && navios.map(navio => (
+      {navios && navios.map(navio => (
       <View>
         <Marker
           coordinate={{
@@ -37,6 +37,6 @@ export const Markers = ({navios}) => {
           </Callout>
         </Marker>
       </View>
-      ))} */}
+      ))}
     </View>
 )};

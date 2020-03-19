@@ -50,12 +50,12 @@ export function ClimatempoScreen() {
         <Content style={{padding: scale(20)}}>
             <View style={style.boxClimatempo}>
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="temperature-high"
+                    type="FontAwesome5"
+                    style={style.iconTitle}
                     onPress={() => console.log('thiago manda o icone')}
                 />
-                <Text style={style.title}>Temperatura(°c)</Text>
+                <Text style={style.title}>Temperatura<Text style={{color: COLOR.ACCENT}}>(°c)</Text></Text>
             </View>
             <Temperatura
                   temperatura={previsaoHoje}
@@ -63,9 +63,9 @@ export function ClimatempoScreen() {
             <Hr/>
             <View style={style.boxClimatempo}>
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="weather-pouring"
+                    type="MaterialCommunityIcons"
+                    style={style.iconTitle}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.title}>Chuvas</Text>
@@ -76,9 +76,9 @@ export function ClimatempoScreen() {
             <Hr/>
             <View style={style.boxClimatempo}>
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="weather-windy"
+                    type="MaterialCommunityIcons"
+                    style={style.iconTitle}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.title}>Vento<Text style={{color: COLOR.ACCENT}}>(km/h)</Text></Text>
@@ -89,9 +89,9 @@ export function ClimatempoScreen() {
             <Hr/>
             <View style={style.boxClimatempo}>
                 <Icon
-                    name="md-menu"
-                    type="Ionicons"
-                    // style={Styles.menuIcon}
+                    name="waves"
+                    type="MaterialCommunityIcons"
+                    style={style.iconTitle}
                     onPress={() => console.log('thiago manda o icone')}
                 />
                 <Text style={style.title}>Tábua dos Marés</Text>

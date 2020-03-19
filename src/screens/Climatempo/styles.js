@@ -63,5 +63,18 @@ export const style = ScaledSheet.create({
         borderBottomWidth: 1,
         borderColor: COLOR.LIGHT,
         marginHorizontal: '0@s'
+    },
+    iconCard:{
+        opacity: 0.6,
+        color: COLOR.LIGHT
+    },
+    iconTitle:{
+        color: COLOR.LIGHT,
+        backgroundColor: COLOR.MAIN,
+        padding: 7,
+        borderRadius: 50,
+        width: '45@s',
+        height: '50@vs',
+        textAlign: 'center'
     }
 });

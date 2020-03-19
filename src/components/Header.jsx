@@ -6,6 +6,7 @@ import { useNavigation, DrawerActions } from '@react-navigation/native';
 import MultiTapComponent from 'react-native-multi-tap-component';
 import { version } from '../../package-lock.json';
 import LinearGradient from 'react-native-linear-gradient';
+import { scale } from 'react-native-size-matters';
 
 const gradientProps = {
     start: { x: 0, y: 0 },
@@ -46,8 +47,9 @@ export const Header = () => {
                 </Body>
                 <Right style={Styles.logoRight}>
                     <Icon
-                        name="md-menu"
-                        type="Ionicons"
+                        name="weather-partlycloudy"
+                        style={[Styles.menuIcon, { fontSize: scale(28) }]}
+                        type="MaterialCommunityIcons"
                         onPress={() => {}}
                     />
                 </Right>

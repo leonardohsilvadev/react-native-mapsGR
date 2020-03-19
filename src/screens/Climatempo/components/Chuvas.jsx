@@ -23,7 +23,7 @@ export const Chuvas = ({chuvas}) => {
 
   return (
     <View>
-        {/* {chuvas && chuvas.map(chuva => (
+        {chuvas && chuvas.map(chuva => (
             <LinearGradient {...cardBlue} style={style.cardBox}>
             <Card style={style.card} transparent>
                 <View style={{marginHorizontal: 0}}>
@@ -49,6 +49,6 @@ export const Chuvas = ({chuvas}) => {
                 />
             </Card>
         </LinearGradient>
-        ))} */}
+        ))}
     </View>
 )};
