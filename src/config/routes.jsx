@@ -45,7 +45,7 @@ export default function Routes() {
         <DrawerStack.Navigator initialRouteName="Condicoes" drawerContent={drawerContent}>
             <DrawerStack.Screen name="Monitoramento" component={HomeStackScreen} />
             <DrawerStack.Screen name="Condicoes" component={ClimatempoStackScreen} />
-            <DrawerStack.Screen name="Sair" component={LoginStackScreen} />
+            <DrawerStack.Screen name="Login" component={LoginStackScreen} />
         </DrawerStack.Navigator>
     )
 

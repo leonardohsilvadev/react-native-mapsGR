@@ -70,7 +70,7 @@ export const Drawer = props => {
         <DrawerItem {...props} label='Histórico de Alertas' labelStyle={Styles.drawerLabel} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={[Styles.drawerItem, { marginTop: verticalScale(190), borderTopWidth: 1 }]} onPress={() => navigate('Login')}>
+        <TouchableOpacity style={[Styles.drawerItem, { marginTop: verticalScale(140), borderTopWidth: 1 }]} onPress={() => navigate('Login')}>
         <Icon name="exit-to-app" type="MaterialCommunityIcons" style={Styles.drawerIcon} labelStyle={Styles.drawerLabel} />
         <DrawerItem {...props} label='Sair' labelStyle={Styles.drawerLabel} />
         </TouchableOpacity>
