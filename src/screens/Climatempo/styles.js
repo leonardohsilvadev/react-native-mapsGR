@@ -13,18 +13,21 @@ export const style = ScaledSheet.create({
     title:{
         fontSize: '24@s', 
         color: COLOR.ACCENT,
-        marginTop: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginLeft: '10@s',
+        marginVertical: '20@vs'
     },
     boxClimatempo:{        
         flexDirection: 'row', 
-        alignItems: 'center'
+        alignItems: 'center',
     },
     card:{
         flexDirection: 'row',
         padding: '10@s',
         borderRadius: 10,
-        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: '60@vs'
     },
     cardBox:{
         marginTop: 10, 
@@ -32,19 +35,33 @@ export const style = ScaledSheet.create({
         elevation: 7,
     },
     numberTemp:{
-        color: COLOR.LIGHT
+        color: COLOR.LIGHT,
+        fontWeight: 'bold',
+        justifyContent: 'center'
     },
     divider:{
         borderLeftWidth: 1,
         borderColor: COLOR.LIGHT,
-        marginHorizontal: '20@s'
+        marginHorizontal: '20@s',
     },
     smallText: {
-        fontSize: 11
+        fontSize: 11,
+        textAlign: 'right'
     },
     titleCard:{
         color: COLOR.LIGHT,
-        marginHorizontal: '20@s',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        width: '100@s',
+        textAlign: 'center'
+    },
+    date:{
+        color: COLOR.LIGHT,
+        fontSize: '12@s',
+        textAlign: 'center'
+    },
+    dividerHorizontal:{        
+        borderBottomWidth: 1,
+        borderColor: COLOR.LIGHT,
+        marginHorizontal: '0@s'
     }
 });
