@@ -4,6 +4,8 @@ export const COLOR = {
     MAIN: '#5DB7FC',
     ACCENT: '#1E83B4',
     ORANGE: '#FF7300',
+    SECONDARY: '#FFAB66',
+    SECONDARY_ACCENT: '#ED6B00',
     DANGER: '#e25b50',
     WARNING: '#fca523',
     LIGHT: '#ffffff',
@@ -32,8 +34,8 @@ export const Styles = ScaledSheet.create({
         alignItems: 'flex-start'
     },
     logoModal: {
-        height: '60@vs',
-        width: '60@s',
+        height: '50@vs',
+        width: '50@s',
     },
     logoRight: {
         // paddingRight: '10@s',

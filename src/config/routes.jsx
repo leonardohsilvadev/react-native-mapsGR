@@ -5,12 +5,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { HomeScreen } from '../screens/Home';
 import { TodoScreen } from '../screens/Todo';
 import { LoginScreen } from '../screens/Login';
+import { AlertaScreen } from '../screens/Alertas';
 import { Header, Drawer } from '../components';
 
 export default function Routes() {
     const HomeStack = createStackNavigator();
     const TodoStack = createStackNavigator();
     const LoginStack = createStackNavigator();
+    const AlertaStack = createStackNavigator();
     const DrawerStack = createDrawerNavigator();
     
     const screenOptions = {
@@ -21,7 +23,6 @@ export default function Routes() {
         props => <Drawer {...props} />
     )
     
-
     const LoginStackScreen = () => (
         <LoginStack.Navigator initialRouteName="Login" screenOptions={screenOptions}>
             <LoginStack.Screen name="Login" component={LoginScreen} />
@@ -39,12 +40,19 @@ export default function Routes() {
             <TodoStack.Screen name="Todo" component={TodoScreen} />
         </TodoStack.Navigator>
     )
+
+    const AlertaStackScreen = () => (
+        <AlertaStack.Navigator initialRouteName="Alerta" screenOptions={screenOptions}>
+            <TodoStack.Screen name="Alerta" component={AlertaScreen} />
+        </AlertaStack.Navigator>
+    )
     
     const DrawerStackScreen = () => (
-        <DrawerStack.Navigator initialRouteName="Home" drawerContent={drawerContent}>
+        <DrawerStack.Navigator initialRouteName="Alerta" drawerContent={drawerContent}>
             <DrawerStack.Screen name="Login" component={LoginStackScreen} />
             <DrawerStack.Screen name="Home" component={HomeStackScreen} />
             <DrawerStack.Screen name="Todo" component={TodoStackScreen} />
+            <DrawerStack.Screen name="Alerta" component={AlertaStackScreen} />
         </DrawerStack.Navigator>
     )
 

@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react';
 import { View, Text, Button, Thumbnail, Content, Form, Item, Input, Label } from 'native-base';
-import { Alert, StyleSheet, Dimensions } from 'react-native';
+import { Alert, StyleSheet, Dimensions, KeyboardAvoidingView } from 'react-native';
 import {api} from '../../utils/api'
 import LinearGradient from 'react-native-linear-gradient';
 import { COLOR, Styles } from '../../config/styles';
@@ -61,7 +61,11 @@ export function LoginScreen() {
 
   return (
     <LinearGradient {...gradientProps}>
-      <ScrollView>
+              <KeyboardAvoidingView
+          // keyboardVerticalOffset={30}
+          behavior="position"
+          enabled
+        >
         <SafeAreaView style={style.container}>
           <View style={Style.boxLogin}>
               <Thumbnail {...logoProps} />    
@@ -80,7 +84,7 @@ export function LoginScreen() {
           </View>
           <Thumbnail {...navioProps} />  
         </SafeAreaView>
-      </ScrollView>
+        </KeyboardAvoidingView>
     </LinearGradient>
   )
 }
