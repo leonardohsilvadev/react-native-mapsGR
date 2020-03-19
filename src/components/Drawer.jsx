@@ -1,10 +1,13 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { DrawerItemList } from '@react-navigation/drawer';
-import { View, Thumbnail, Text} from 'native-base';
+import { DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
+import { View, Thumbnail, Text, Icon} from 'native-base';
 import { Styles } from '../config/styles';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { COLOR } from '../config/styles';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { verticalScale } from 'react-native-size-matters';
 
 const logoProps = {
     style: Styles.logo,
@@ -18,10 +21,22 @@ const avatarProps = {
 };
 
 export const Drawer = props => {
+    const { navigation: { navigate } } = props;
+
+    // const navItem = (nav, text) => {
+
+    //     return (
+    //       <TouchableOpacity
+    //         style={Styles.touchableNavLink}
+    //         onPress={() => navigation.navigate(nav)}>
+    //         <Text style={Styles.textNavLink}>{text}</Text>
+    //       </TouchableOpacity>
+    //     );
+    //   }
 
     return (
-    <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView style={Styles.container}>
+    <SafeAreaView style={{ flex: 1 }} forceInset={{ top: 'always', horizontal: 'never' }}>
+        <DrawerContentScrollView {...props} style={Styles.container}>
             <View style={Styles.header}>
                 <View style={Styles.userInfo}>
                     <View>
@@ -29,8 +44,37 @@ export const Drawer = props => {
                     </View>
                 </View>
             </View>
-        <DrawerItemList {...props} labelStyle={Styles.navList}/>
-        </ScrollView>
+
+        <TouchableOpacity style={Styles.drawerItem}>
+        <Icon name="map-marker-alt" type="FontAwesome5" style={Styles.drawerIcon} />
+        <DrawerItem {...props} label='Monitoramento' onPress={() => navigate('Monitoramento')} labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={Styles.drawerItem} onPress={() => navigate('Condicoes')}>
+        <Icon name="ios-cloud" type="Ionicons" style={Styles.drawerIcon} />
+        <DrawerItem {...props} label='Condições' labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={Styles.drawerItem} onPress={() => navigate('Passagens')}>
+        <Icon name="restore-clock" type="MaterialCommunityIcons" style={Styles.drawerIcon} />
+        <DrawerItem {...props} label='Histórico de Passagens' labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={Styles.drawerItem} onPress={() => navigate('Trafego')}>
+        <Icon name="earth" type="MaterialCommunityIcons" style={Styles.drawerIcon} />
+        <DrawerItem {...props} label='Histórico de Tráfego' labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={Styles.drawerItem} onPress={() => navigate('Alertas')}>
+        <Icon name="bell" type="MaterialCommunityIcons" style={Styles.drawerIcon} labelStyle={Styles.drawerLabel} />
+        <DrawerItem {...props} label='Histórico de Alertas' labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[Styles.drawerItem, { marginTop: verticalScale(190), borderTopWidth: 1 }]} onPress={() => navigate('Login')}>
+        <Icon name="exit-to-app" type="MaterialCommunityIcons" style={Styles.drawerIcon} labelStyle={Styles.drawerLabel} />
+        <DrawerItem {...props} label='Sair' labelStyle={Styles.drawerLabel} />
+        </TouchableOpacity>
+        </DrawerContentScrollView>
     </SafeAreaView>
     )
 }

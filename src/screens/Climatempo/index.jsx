@@ -3,7 +3,7 @@ import { View, Text, Container, Content, Left, Icon, Card, Body, CardItem } from
 import { api } from '../../utils/api'
 import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import { style, styleShadow } from './styles'
-import { Hr } from '../../components/Hr'
+import { Hr } from '../../components'
 import { useNavigation } from '@react-navigation/native';
 import { scale } from 'react-native-size-matters';
 import { Temperatura } from './components/Temperaturas'

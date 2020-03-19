@@ -51,8 +51,8 @@ export const Styles = ScaledSheet.create({
     },
     header: {
       marginTop: '20@vs',
-      borderBottomWidth: 1,
-      borderColor: '#DDD',
+      borderBottomColor: COLOR.MAIN,
+      borderBottomWidth: 1
     },
     title: {
       fontSize: '34@s',
@@ -79,7 +79,7 @@ export const Styles = ScaledSheet.create({
       width: '100@s',
       height: 10,
       borderRadius: 10,
-      backgroundColor: '#FF7300',
+      backgroundColor: COLOR.ORANGE,
       marginLeft: 'auto',
       marginRight: 'auto',
       marginTop: 20
@@ -88,13 +88,20 @@ export const Styles = ScaledSheet.create({
       backgroundColor: COLOR.ACCENT,
       padding: 0
     },
-    navList:{
-      color: COLOR.LIGHT,
+    drawerItem: {
+      flexDirection: 'row',
+      borderColor: COLOR.MAIN,
       borderBottomWidth: 1,
-      borderColor: '#DDD',
-      width: '240@s',
-      padding: '5@s',
-      marginVertical: 0,
-      marginHorizontal: 0
-    }
+      alignItems: 'center',
+      marginHorizontal: 0,
+      paddingLeft: '20@s',
+    },
+    drawerIcon: {
+      fontSize: '16@s',
+      opacity: 0.5
+    },
+    drawerLabel: {
+      color: COLOR.LIGHT,
+      fontSize: '14@s'
+    },
 });
