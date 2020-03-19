@@ -42,10 +42,10 @@ export default function Routes() {
     
     
     const DrawerStackScreen = () => (
-        <DrawerStack.Navigator initialRouteName="Climatempo" drawerContent={drawerContent}>
-            <DrawerStack.Screen name="Login" component={LoginStackScreen} />
-            <DrawerStack.Screen name="Home" component={HomeStackScreen} />
-            <DrawerStack.Screen name="Climatempo" component={ClimatempoStackScreen} />
+        <DrawerStack.Navigator initialRouteName="Condições" drawerContent={drawerContent}>
+            <DrawerStack.Screen name="Monitoramento" component={HomeStackScreen} />
+            <DrawerStack.Screen name="Condições" component={ClimatempoStackScreen} />
+            <DrawerStack.Screen name="Sair" component={LoginStackScreen} />
         </DrawerStack.Navigator>
     )
 

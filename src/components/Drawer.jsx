@@ -4,6 +4,7 @@ import { DrawerItemList } from '@react-navigation/drawer';
 import { View, Thumbnail, Text} from 'native-base';
 import { Styles } from '../config/styles';
 import { SafeAreaView, ScrollView } from 'react-native';
+import { COLOR } from '../config/styles';
 
 const logoProps = {
     style: Styles.logo,
@@ -20,20 +21,15 @@ export const Drawer = props => {
 
     return (
     <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView>
+        <ScrollView style={Styles.container}>
             <View style={Styles.header}>
-                <Thumbnail {...logoProps} />
-                <View style={Styles.avatar}>
-                <Thumbnail {...avatarProps} />
-                </View>
                 <View style={Styles.userInfo}>
                     <View>
-                        <Text style={Styles.name}>Modal GR</Text>
-                        <Text style={Styles.email}>modalgr@modalgr.com.br</Text>
+                        <Text style={Styles.title}>MENU</Text>
                     </View>
                 </View>
             </View>
-        <DrawerItemList {...props} />
+        <DrawerItemList {...props} labelStyle={Styles.navList}/>
         </ScrollView>
     </SafeAreaView>
     )

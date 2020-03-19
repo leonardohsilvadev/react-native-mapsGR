@@ -1,4 +1,5 @@
 import { ScaledSheet } from 'react-native-size-matters';
+import { Dimensions } from 'react-native';
 
 export const COLOR = {
     MAIN: '#5DB7FC',
@@ -49,24 +50,20 @@ export const Styles = ScaledSheet.create({
       justifyContent: 'space-between',
     },
     header: {
-      marginTop: '10@vs',
+      marginTop: '20@vs',
       borderBottomWidth: 1,
       borderColor: '#DDD',
     },
-    name: {
-      fontSize: '20@s',
+    title: {
+      fontSize: '34@s',
+      marginVertical: '20@s',
       marginLeft: '10@s',
+      color: COLOR.LIGHT
     },
     email: {
       fontSize: '15@s',
       marginLeft: '10@s',
       marginBottom: '10@vs',
-    },
-    logo: {
-      width: '80@s',
-      height: '80@vs',
-      marginVertical: '20@vs',
-      marginLeft: '10@s',
     },
     avatar: {
       width: 120,
@@ -86,5 +83,18 @@ export const Styles = ScaledSheet.create({
       marginLeft: 'auto',
       marginRight: 'auto',
       marginTop: 20
+    },
+    container:{
+      backgroundColor: COLOR.ACCENT,
+      padding: 0
+    },
+    navList:{
+      color: COLOR.LIGHT,
+      borderBottomWidth: 1,
+      borderColor: '#DDD',
+      width: '240@s',
+      padding: '5@s',
+      marginVertical: 0,
+      marginHorizontal: 0
     }
 });
