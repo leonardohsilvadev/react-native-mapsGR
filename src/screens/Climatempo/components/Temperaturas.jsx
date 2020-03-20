@@ -28,7 +28,7 @@ export const Temperatura = ({temperatura}) => {
                     name="weather-sunset-up"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Amanhecer
@@ -49,7 +49,7 @@ export const Temperatura = ({temperatura}) => {
                     name="white-balance-sunny"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Manhã
@@ -70,7 +70,7 @@ export const Temperatura = ({temperatura}) => {
                     name="weather-sunset"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Tarde
@@ -91,7 +91,7 @@ export const Temperatura = ({temperatura}) => {
                     name="weather-night"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Noite

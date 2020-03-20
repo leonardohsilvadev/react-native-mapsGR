@@ -2,6 +2,10 @@ import { ScaledSheet } from "react-native-size-matters";
 import { COLOR } from "../../config/styles";
 
 export const Styles = ScaledSheet.create({
+    passagensBox: {
+        paddingHorizontal: '20@s',
+        marginBottom: '20@vs',
+    },
     searchBar: {
         marginHorizontal: '20@s',
         paddingHorizontal: '10@s',
@@ -55,23 +59,6 @@ export const Styles = ScaledSheet.create({
     itemTitle: {
         fontSize: '10@s'
     },
-    startDate: {
-        color: COLOR.LIGHT,
-        fontSize: '10@s',
-        fontWeight: 'bold',
-        marginRight: '20@vs'
-    },
-    stopIcon: {
-        color: COLOR.LIGHT,
-        fontSize: '14@s',
-        marginRight: '2@vs',
-        opacity: 0.5
-    },
-    endDate: {
-        color: COLOR.LIGHT,
-        fontSize: '10@s',
-        fontWeight: 'bold'
-    },
     clockIcon: {
         color: COLOR.LIGHT,
         fontSize: '12@s',
@@ -95,25 +82,67 @@ export const Styles = ScaledSheet.create({
         fontSize: '10@s',
         fontWeight: 'bold'
     },
-    messageIcon: {
-        color: COLOR.LIGHT,
-        fontSize: '12@s',
-        marginRight: '2@vs',
-        opacity: 0.5
-    },
-    message: {
-        color: COLOR.LIGHT,
-        fontSize: '10@s',
-        flex: 1,
-        flexWrap: 'wrap'
-    },
     iconTitle:{
         color: COLOR.LIGHT,
         backgroundColor: COLOR.MAIN,
-        padding: 4,
+        padding: 3,
         borderRadius: 50,
         width: '40@s',
-        height: '45@vs',
+        height: '41@vs',
         textAlign: 'center'
+    },
+    card:{
+        flexDirection: 'row',
+        padding: '10@s',
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: '90@vs'
+    },
+    smallText: {
+        fontSize: 11,
+        fontWeight: 'normal'
+    },
+    secondText: {
+        fontSize: 11,
+        marginRight: '10@s'
+    },
+    titleCard:{
+        color: COLOR.BLACK,
+        fontWeight: 'bold',
+        width: '200@s',
+    },
+    iconCard:{
+        color: COLOR.SHIP_ICON
+    },
+    numberTemp:{
+        color: COLOR.BLACK,
+        fontWeight: 'bold',
+        justifyContent: 'center',
+    },
+    cardBox:{
+        marginVertical: 10, 
+        borderRadius: 10,     
+        elevation: 7,
+    },
+    infosPassagem:{
+        width: '300@s',
+        textAlign: 'center',
+        justifyContent: 'center',
+        marginLeft: '20@s',
+    },
+    value: {
+        fontWeight: 'bold',
+        marginRight: 10
+    },
+    secondIcon:{
+        color: COLOR.GRAY,
+        opacity: 0.7,
+        fontSize: 12,
+        marginRight: 10
+    },    
+    fundoNavio:{
+        width: '100%',
+        zIndex: 999,
     },
 });

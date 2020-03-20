@@ -6,6 +6,7 @@ import { LoginScreen } from '../screens/Login';
 import { HomeScreen } from '../screens/Home';
 import { ClimatempoScreen } from '../screens/Climatempo';
 import { AlertaScreen } from '../screens/Alertas';
+import { PassagensScreen } from '../screens/Passagens';
 import { Header, Drawer } from '../components';
 
 export default function Routes() {
@@ -13,6 +14,7 @@ export default function Routes() {
     const LoginStack = createStackNavigator();
     const ClimatempoStack = createStackNavigator();
     const AlertaStack = createStackNavigator();
+    const PassagensStack = createStackNavigator();
     const DrawerStack = createDrawerNavigator();
     
     const screenOptions = {
@@ -46,14 +48,21 @@ export default function Routes() {
             <AlertaStack.Screen name="Alerta" component={AlertaScreen} />
         </AlertaStack.Navigator>
     )
+
+    const PassagensStackScreen = () => (
+        <PassagensStack.Navigator initialRouteName="Passagens" screenOptions={screenOptions}>
+            <PassagensStack.Screen name="Passagens" component={PassagensScreen} />
+        </PassagensStack.Navigator>
+    )
     
     
     const DrawerStackScreen = () => (
-        <DrawerStack.Navigator initialRouteName="Condicoes" drawerContent={drawerContent}>
+        <DrawerStack.Navigator initialRouteName="Passagens" drawerContent={drawerContent}>
             <DrawerStack.Screen name="Monitoramento" component={HomeStackScreen} />
             <DrawerStack.Screen name="Condicoes" component={ClimatempoStackScreen} />
             <DrawerStack.Screen name="Login" component={LoginStackScreen} />
             <DrawerStack.Screen name="Alertas" component={AlertaStackScreen} />
+            <DrawerStack.Screen name="Passagens" component={PassagensStackScreen} />
         </DrawerStack.Navigator>
     )
 

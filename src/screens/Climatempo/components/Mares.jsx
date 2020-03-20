@@ -49,7 +49,7 @@ export const Mares = ({ventos, mareAtual}) => {
                     name="weather-sunset"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Tarde
@@ -67,7 +67,7 @@ export const Mares = ({ventos, mareAtual}) => {
                     name="weather-night"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Noite

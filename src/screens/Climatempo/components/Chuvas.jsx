@@ -55,7 +55,7 @@ export const Chuvas = ({chuvas}) => {
                         name={iconSunOrRain}
                         type={fontIcon}
                         style={style.iconCard}
-                        onPress={() => console.log('thiago manda o icone')}
+                        
                     />
                 </Card>
             </LinearGradient>

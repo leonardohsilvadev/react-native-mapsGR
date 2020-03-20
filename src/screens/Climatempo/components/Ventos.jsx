@@ -29,7 +29,7 @@ export const Ventos = ({ventos}) => {
                     name="weather-sunset-up"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Amanhecer
@@ -47,7 +47,7 @@ export const Ventos = ({ventos}) => {
                     name="white-balance-sunny"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Manhã
@@ -65,7 +65,7 @@ export const Ventos = ({ventos}) => {
                     name="weather-sunset"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Tarde
@@ -83,7 +83,7 @@ export const Ventos = ({ventos}) => {
                     name="weather-night"
                     type="MaterialCommunityIcons"
                     style={style.iconCard}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.titleCard}>
                     Noite

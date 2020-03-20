@@ -15,7 +15,7 @@ import { COLOR } from '../../config/styles';
 export function ClimatempoScreen() {
 
   const navigation = useNavigation();
-  const [previsaoHoje, setPrevisaoHoje] = useState()
+  const [previsaoHoje, setPrevisaoHoje] = useState('')
   const [previsaoSemana, setPrevisaoSemana] = useState();
   const [mareAtual, setMareAtual] = useState();
 
@@ -64,7 +64,7 @@ export function ClimatempoScreen() {
                     name="temperature-high"
                     type="FontAwesome5"
                     style={style.iconTitle}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.title}>Temperatura<Text style={{color: COLOR.ACCENT}}>(°c)</Text></Text>
             </View>
@@ -77,7 +77,7 @@ export function ClimatempoScreen() {
                     name="weather-pouring"
                     type="MaterialCommunityIcons"
                     style={style.iconTitle}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.title}>Chuvas</Text>
             </View>
@@ -90,7 +90,7 @@ export function ClimatempoScreen() {
                     name="weather-windy"
                     type="MaterialCommunityIcons"
                     style={style.iconTitle}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.title}>Vento<Text style={{color: COLOR.ACCENT}}>(km/h)</Text></Text>
             </View>
@@ -103,7 +103,7 @@ export function ClimatempoScreen() {
                     name="waves"
                     type="MaterialCommunityIcons"
                     style={style.iconTitle}
-                    onPress={() => console.log('thiago manda o icone')}
+                    
                 />
                 <Text style={style.title}>Tábua dos Marés</Text>
             </View>
