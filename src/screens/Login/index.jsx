@@ -67,11 +67,11 @@ export function LoginScreen() {
               <Thumbnail {...logoProps} />    
               <Hr/>
               <Text style={Style.title}>MONITORAMENTO DE NAVIOS</Text>
-              <Item stackedLabel last>
-                <Label style={{borderBottomColor: 'transparent'}} style={Style.label}>Email</Label>
+              <Item style={{marginTop: 10, borderColor: 'transparent'}} stackedLabel regular last>
+                <Label style={Style.label}>Email</Label>
                 <Input style={Style.input} onChangeText={value => setEmailLogin(value)}/>
               </Item>
-              <Item style={{borderBottomColor: 'transparent'}} stackedLabel last style={{marginTop: 10}}>
+              <Item style={{marginTop: 10, borderColor: 'transparent'}} stackedLabel regular last >
                 <Label style={Style.label}>Senha</Label>
                 <Input secureTextEntry={true} style={Style.input} onChangeText={value => setSenhaLogin(value)}/>
               </Item>

@@ -8,7 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { api, handleRequestError } from '../../utils/api';
 import { Passagens } from './components/Passagens';
 
-export function PassagensScreen() {
+export function TrafegoScreen() {
     const [expanded, setExpanded] = useState(false);
     const [search, setSearch] = useState('');
     const [alertas, setAlertas] = useState([]);
@@ -42,7 +42,7 @@ export function PassagensScreen() {
             <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: expanded ? Dimensions.get('window').width : null }}>
             <View style={{ flexDirection: 'row', paddingLeft: scale(20), paddingVertical: verticalScale(20), paddingHorizontal: scale(20) }}>
                 <Icon
-                    name="history"
+                    name="earth"
                     type="MaterialCommunityIcons"
                     style={Styles.iconTitle}
                     onPress={() => {}}
@@ -50,7 +50,6 @@ export function PassagensScreen() {
                 <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(5) }}>Histórico de Tráfego</H1>
             </View>            
           </ImageBackground>
-          <Passagens/>  
           <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
           <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
           </Content>
