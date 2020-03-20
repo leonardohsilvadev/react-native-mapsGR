@@ -26,7 +26,7 @@ export function HomeScreen() {
     getNavios();
   }, [])
 
-  const [navios, setNavios] = useState('')
+  const [navios, setNavios] = useState()
   const [coordenadas, setCoordenadas] = useState([
     {name: '2', latitude: -23.979875, longitude:-46.289173}, {name: '1', latitude: -23.979816, longitude: -46.291029},
     {name: '3', latitude: -23.982210, longitude: -46.291282}, {name: '4', latitude: -23.982214, longitude:-46.289140},
@@ -41,8 +41,6 @@ export function HomeScreen() {
     })
     .catch(err => console.log('Erro ao buscar Navios', err));
   }
-
-  console.log(coordenadas)
 
   return (
     <View style={styles.container}>

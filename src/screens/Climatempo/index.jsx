@@ -9,17 +9,20 @@ import { scale } from 'react-native-size-matters';
 import { Temperatura } from './components/Temperaturas'
 import { Chuvas } from './components/Chuvas'
 import { Ventos } from './components/Ventos'
+import { Mares } from './components/Mares'
 import { COLOR } from '../../config/styles';
 
 export function ClimatempoScreen() {
 
   const navigation = useNavigation();
-  const [previsaoHoje, setPrevisaoHoje] = useState('');
-  const [previsaoSemana, setPrevisaoSemana] = useState('');
+  const [previsaoHoje, setPrevisaoHoje] = useState()
+  const [previsaoSemana, setPrevisaoSemana] = useState();
+  const [mareAtual, setMareAtual] = useState();
 
   useEffect(() => {
     getPrevisao()
     getPrevisaoHoje()
+    getMareAtual()
   }, [])
 
   function getPrevisao() {  
@@ -38,12 +41,20 @@ export function ClimatempoScreen() {
     api('').get(url)
     .then(({ data }) => {
         setPrevisaoHoje(data)
-        console.log(data)
     })
     .catch(err => console.log('Erro ao dar get previsão hoje', err));
   }
 
-  console.log('previsaoHoje', previsaoHoje)
+  function getMareAtual() {  
+    let url = '/api/TabuaMares/getAtual'
+
+    api('').get(url)
+    .then(({ data }) => {
+        setMareAtual(data)
+        console.log(data)
+    })
+    .catch(err => console.log('Erro ao dar get previsão hoje', err));
+  }
 
   return (
     <Container>
@@ -96,8 +107,9 @@ export function ClimatempoScreen() {
                 />
                 <Text style={style.title}>Tábua dos Marés</Text>
             </View>
-            <Ventos
+            <Mares
                 ventos={previsaoHoje}
+                mareAtual={mareAtual}
             />
         </Content>
     </Container>

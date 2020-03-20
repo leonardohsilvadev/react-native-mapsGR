@@ -37,7 +37,7 @@ export const style = ScaledSheet.create({
     numberTemp:{
         color: COLOR.LIGHT,
         fontWeight: 'bold',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     divider:{
         borderLeftWidth: 1,
@@ -46,7 +46,6 @@ export const style = ScaledSheet.create({
     },
     smallText: {
         fontSize: 11,
-        textAlign: 'right'
     },
     titleCard:{
         color: COLOR.LIGHT,
@@ -76,5 +75,5 @@ export const style = ScaledSheet.create({
         width: '45@s',
         height: '50@vs',
         textAlign: 'center'
-    }
+    },
 });
