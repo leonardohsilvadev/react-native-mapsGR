@@ -2,9 +2,8 @@ import React , {useEffect, useState} from 'react';
 import { Markers } from './components/Markers';
 import { Perimeters } from './components/Perimeters';
 import { View } from 'native-base';
-import MapView, { PROVIDER_GOOGLE, Polyline, Polygon } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Alert, StyleSheet, Dimensions } from 'react-native';
-import { Marker } from 'react-native-maps';
 import {api} from '../../utils/api'
 
 const styles = StyleSheet.create({

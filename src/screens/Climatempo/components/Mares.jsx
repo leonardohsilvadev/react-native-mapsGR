@@ -2,10 +2,9 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Left, Icon, Card,} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import { Styles } from '../styles';
 import { style, styleShadow } from '../styles'
 import { COLOR } from '../../../config/styles';
-import { scale } from 'react-native-size-matters';
+
 export const Mares = ({ventos, mareAtual}) => {
   const navigation = useNavigation();
 

@@ -4,6 +4,7 @@ import { View } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import { Marker, Callout } from 'react-native-maps';
 import { Styles } from '../styles';
+
 export const Markers = ({navios}) => {
   const navigation = useNavigation();
 

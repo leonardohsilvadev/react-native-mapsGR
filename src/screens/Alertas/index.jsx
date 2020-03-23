@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from 'react';
-import { View, Text, Container, Content, H1, Icon, Item, Input, Card, Body, CardItem, Thumbnail } from 'native-base';
+import { View, Text, Container, Content, H1, Icon, Item, Input} from 'native-base';
 import { Alert, StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import { Styles } from './styles';
 import { verticalScale, scale } from 'react-native-size-matters';

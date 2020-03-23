@@ -1,12 +1,14 @@
 import React , {useEffect, useState} from 'react';
 import { View, Text, Button, Thumbnail, Content, Form, Item, Input, Label } from 'native-base';
 import { Alert, StyleSheet, Dimensions } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import {api} from '../../utils/api'
 import LinearGradient from 'react-native-linear-gradient';
 import { COLOR, Styles } from '../../config/styles';
 import { SafeAreaView, ScrollView } from 'react-native';
 import {Style} from './styles'
 import { Hr } from '../../components/Hr'
+import { useNavigation } from '@react-navigation/native';
 
 const gradientProps = {
   start: { x: 1, y: 0 },
@@ -31,13 +33,11 @@ const style = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
     alignItems: 'center',
-    // height: '100%',
-    // justifyContent: 'flex-end',
-    // backgroundColor: 'linear-gradient(180deg, rgba(91,182,252,1) 50%, rgba(235,249,232,1) 80%)'
   },
  });
 
 export function LoginScreen() {
+  const navigation = useNavigation();
   
   const [email, setEmailLogin] = useState('')
   const [password, setSenhaLogin] = useState('')
@@ -54,10 +54,11 @@ export function LoginScreen() {
     api('').post(url, body)
     .then(({ data }) => {
       console.log(data)
+      navigation.navigate('Monitoramento')
+      AsyncStorage.setItem('email', email)
     })
     .catch(err => console.log('Erro ao logar-se', err));
   }
-
 
   return (
     <LinearGradient {...gradientProps}>

@@ -1,40 +1,42 @@
 import React , {useEffect, useState} from 'react';
-import { View, Text, Container, Content, H1, Icon, Item, Input, Card, Body, CardItem, Thumbnail } from 'native-base';
+import { View, Text, Container, Content, H1, Icon,} from 'native-base';
 import { Alert, StyleSheet, Dimensions, ImageBackground } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Styles } from './styles';
 import { verticalScale, scale } from 'react-native-size-matters';
 import { COLOR } from '../../config/styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { api, handleRequestError } from '../../utils/api';
 import { Passagens } from './components/Passagens';
+import moment from 'moment'
 
 export function PassagensScreen() {
     const [expanded, setExpanded] = useState(false);
+    const [passagens, setPassagens] = useState([]);
+    const [date, setDate] = useState(moment(new Date()).format('DD/MM/YYYY')) 
     const [search, setSearch] = useState('');
-    const [alertas, setAlertas] = useState([]);
     const [alertasFiltrados, setAlertasFiltrados] = useState([]);
 
-    // useEffect(() => {
-    //   let url = '/api/ClimaTempo/getAlertas';
-    //   const config = { params: { email: 'fernando.salgado93@gmail.com' } };
+    useEffect(() => {
+      getPorData()
+    }, []);
 
-    //   api('').get(url, config)
-    //     .then(({ data }) => {
-    //       console.log(data);
-    //       setAlertas(data);
-    //     })
-    //     .catch(handleRequestError)
-    // }, []);
+    async function getPorData() {  
+      let email = await AsyncStorage.getItem('email')
+      let url = `/api/HistoricoNavios/getPorData?email=${email}&data=${date}&menor=0&maior=23`
 
-    const searchFilter = text => {
-        const textoPesquisa = text.toUpperCase();
-        const novaPesquisa = Array.from(alertas).filter(
-          ({ data }) => data.toUpperCase().indexOf(textoPesquisa) > -1,
-        );
-    
-        setAlertasFiltrados(novaPesquisa);
-        setSearch(text);
-    };
+      api('').get(url)
+      .then(({ data }) => {
+        console.log(data)
+        setPassagens(data)
+      })
+      .catch(err => console.log('Erro ao get por data', err));
+    }
+
+    const changeDate = (event) => {
+      let newDate = event.target.value;
+      console.log(newDate)
+    }
+
 
   return (
       <Container>
@@ -47,10 +49,13 @@ export function PassagensScreen() {
                     style={Styles.iconTitle}
                     onPress={() => {}}
                 />
-                <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(5) }}>Histórico de Tráfego</H1>
+                <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(5) }}>Histórico de Passagens</H1>
             </View>            
           </ImageBackground>
-          <Passagens/>  
+          <Passagens
+            passagens={passagens}
+            changeDate={changeDate}
+          />  
           <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
           <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
           </Content>
