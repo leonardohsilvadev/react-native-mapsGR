@@ -10,11 +10,8 @@ import { Passagens } from './components/Passagens';
 import moment from 'moment'
 
 export function PassagensScreen() {
-    const [expanded, setExpanded] = useState(false);
     const [passagens, setPassagens] = useState([]);
     const [date, setDate] = useState(new Date()) 
-    const [search, setSearch] = useState('');
-    const [alertasFiltrados, setAlertasFiltrados] = useState([]);
 
     useEffect(() => {
       getPorData()
@@ -35,7 +32,7 @@ export function PassagensScreen() {
   return (
       <Container>
           <Content>
-            <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: expanded ? Dimensions.get('window').width : null }}>
+            <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width}}>
             <View style={{ flexDirection: 'row', paddingLeft: scale(20), paddingVertical: verticalScale(20), paddingHorizontal: scale(20) }}>
                 <Icon
                     name="history"
@@ -50,8 +47,8 @@ export function PassagensScreen() {
             passagens={passagens}
             setDate={setDate}
           />  
-          <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
-          <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: expanded ? Dimensions.get('window').width : null, height: 100, marginTop: -30 }}/>
+          <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
+          <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           </Content>
       </Container>
   )
