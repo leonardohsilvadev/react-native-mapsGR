@@ -20,6 +20,8 @@ export const style = ScaledSheet.create({
     boxClimatempo:{        
         flexDirection: 'row', 
         alignItems: 'center',
+        padding: '20@s',
+        marginTop: '50@vs'
     },
     card:{
         flexDirection: 'row',
@@ -33,6 +35,7 @@ export const style = ScaledSheet.create({
         marginTop: 10, 
         borderRadius: 20,     
         elevation: 7,
+        marginHorizontal: '20@s',
     },
     numberTemp:{
         color: COLOR.LIGHT,
@@ -59,9 +62,9 @@ export const style = ScaledSheet.create({
         textAlign: 'center'
     },
     dividerHorizontal:{        
-        borderBottomWidth: 1,
+        borderLeftWidth: 1,
         borderColor: COLOR.LIGHT,
-        marginHorizontal: '0@s'
+        marginHorizontal: '10@s'
     },
     iconCard:{
         opacity: 0.6,

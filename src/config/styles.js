@@ -16,7 +16,9 @@ export const COLOR = {
     DARK_GRAY: '#6f6f6f',
     DARK: '#040207',
     BLACK: '#000000',
-    SHIP_ICON: '#005781'
+    SHIP_ICON: '#005781',
+    MARE_INITIAL: '#086BB7' ,
+    MARE_LAST: '#5BB6FC' 
   };
 
 export const Styles = ScaledSheet.create({
