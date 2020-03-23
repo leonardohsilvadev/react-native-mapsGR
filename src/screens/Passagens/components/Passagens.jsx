@@ -6,7 +6,7 @@ import { Styles } from '../styles';
 import { COLOR } from '../../../config/styles';
 import { scale, verticalScale } from 'react-native-size-matters';
 
-export const Passagens = ({passagens, changeDate}) => {
+export const Passagens = ({passagens, setDate}) => {
 
     const cardWhite = {
         start: { x: 0, y: 0 },
@@ -25,8 +25,8 @@ export const Passagens = ({passagens, changeDate}) => {
                     modalTransparent={true}
                     animationType={"fade"}
                     androidMode={"default"}
-                    onDateChange={value => changeDate(value)}
-                    disabled={false}
+                    onDateChange={value => setDate(value)}
+                    disabled={false}                    
                 />
                 </Item>                
             </Content>
