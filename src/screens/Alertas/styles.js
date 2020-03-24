@@ -40,7 +40,8 @@ export const Styles = ScaledSheet.create({
     upDownIcon: {
         color: COLOR.LIGHT,
         fontSize: '20@s',
-        paddingVertical: '8@vs'
+        paddingVertical: '8@vs',    
+        marginLeft: '-5@s'
     },
     viewInfo: {
         flexDirection: 'row',
