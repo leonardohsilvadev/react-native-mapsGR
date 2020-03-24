@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, Text, Left, Icon, Card, Content, Item, Input, Button, DatePicker} from 'native-base';
+import { View, Text, Left, Icon, Card, Content, Item, Input, Button, DatePicker, Picker} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { Styles } from '../styles';
 import { COLOR } from '../../../config/styles';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Alert, StyleSheet, Dimensions } from 'react-native';
+import { verticalScale, scale } from 'react-native-size-matters';
 
-export const Trafego = ({}) => {
-    const navigation = useNavigation();
-    const [date, setDate] = useState()
-    
-    const styles = StyleSheet.create({
-        map: {
-          height: 220,
-          width: Dimensions.get('window').width
-        },
-    })
-
-    console.log(date)
-
+export const Trafego = ({setDate, navios, setNavio, navio, getTrafegoByNavio}) => {
     return (
         <View>
             <Text style={Styles.label}>Data</Text>
@@ -38,28 +25,19 @@ export const Trafego = ({}) => {
             </Content>
             <Text style={Styles.label}>Navio</Text>
             <Content searchBar style={Styles.searchBar}>
-                <Item>
-                <Input
-                    style={Styles.input}
-                />
-                </Item>                
+                <Picker
+                    placeholder="Navios"
+                    mode="dialog"
+                    style={{ width: '100%', height: verticalScale(50) }}
+                    onValueChange={value => setNavio(value)}       
+                    selectedValue={navio}
+                >
+                    {navios && navios.map(navio =>                         
+                        <Picker.Item label={navio.name} value={navio.name} />
+                    )}
+                </Picker>               
             </Content>
-            <Button style={Styles.btnEntrar} onPress={() => console.log('pesquisar')}><Text style={{textAlign: "center", fontWeight: 'bold'}}>Pesquisar</Text></Button>
-            <Content>
-                <MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                region={{
-                    latitude: -23.981225, 
-                    longitude: -46.291127,
-                    latitudeDelta: 0.015,
-                    longitudeDelta: 0.0121,
-                }}      
-                maxZoomLevel={20} // default => 20
-                enableZoomControl={true}
-                zoomEnabled = {true}
-                />
-            </Content>
+            <Button style={Styles.btnEntrar} onPress={() => getTrafegoByNavio()}><Text style={{textAlign: "center", fontWeight: 'bold'}}>Pesquisar</Text></Button>            
         </View>
     )
 };
