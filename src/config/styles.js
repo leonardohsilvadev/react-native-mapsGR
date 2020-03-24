@@ -65,6 +65,32 @@ export const Styles = ScaledSheet.create({
       marginLeft: '10@s',
       color: COLOR.LIGHT
     },
+    popover:{
+      width: '250@s',
+      height: '120@vs',
+      marginLeft: '-110@s',
+      padding: 0
+    },
+    hrPopover:{
+      borderLeftColor: 
+      COLOR.LIGHT, 
+      borderLeftWidth: '250@s', 
+      height: 1,
+      marginVertical: 5
+    },
+    textPopover:{
+      color: COLOR.LIGHT, 
+      fontWeight: "bold", 
+      marginLeft: 10,
+      marginVertical: 5
+    },
+    iconPopover:{
+      backgroundColor: COLOR.ORANGE,
+      color: COLOR.LIGHT,
+      padding: 5,
+      borderRadius: 50,
+      marginHorizontal: 5
+    },
     email: {
       fontSize: '15@s',
       marginLeft: '10@s',
