@@ -5,7 +5,7 @@ import { Styles } from './styles';
 import { verticalScale, scale } from 'react-native-size-matters';
 import { COLOR } from '../../config/styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Accordion } from './components/Accordion';
+import { Alertas } from './components/Alertas';
 import { api, handleRequestError } from '../../utils/api';
 
 export function AlertaScreen() {
@@ -42,25 +42,12 @@ export function AlertaScreen() {
                 />
                 <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(10) }}>Histórico de Alertas</H1>
             </View>
-            <Text style={{ paddingLeft: scale(20), paddingBottom: verticalScale(4), color: COLOR.ORANGE, fontSize: scale(14) }}>Pesquisar</Text>
-            <Content searchBar style={Styles.searchBar}>
-            <Item>
-                <DatePicker
-                    defaultDate={new Date()}
-                    locale={"br"}
-                    modalTransparent={true}
-                    animationType={"fade"}
-                    androidMode={"default"}
-                    onDateChange={value => setSearch(value)}
-                    disabled={false}
-                />
-            </Item>
-          </Content>
           </ImageBackground>
-          <Accordion
+          <Alertas
             alertas={alertas}
             expanded={expanded}
             onPress={() => setExpanded(!expanded)}
+            setSearch
           />
           {/* <Accordion
             title="08/03/2020 - Domingo"
