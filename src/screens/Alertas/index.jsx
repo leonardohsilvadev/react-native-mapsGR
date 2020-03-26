@@ -7,12 +7,15 @@ import { COLOR } from '../../config/styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Alertas } from './components/Alertas';
 import { api, handleRequestError } from '../../utils/api';
+import { Loader } from '../../components/Loader';
 
 export function AlertaScreen() {
     const [expanded, setExpanded] = useState(false);
+    const [open, setOpen] = useState(false)
     const [search, setSearch] = useState(new Date());
     const [alertas, setAlertas] = useState([]);
     const [alertasFiltrados, setAlertasFiltrados] = useState([]);
+    const checked = false
 
     useEffect(() => {
       getAlertas()
@@ -20,15 +23,22 @@ export function AlertaScreen() {
 
     function getAlertas(){
       let url = `/api/HistoricoAlarmes/get`
-  
+      setOpen(true)  
+
       api('').get(url)
       .then(({ data }) => {
-        setAlertas(data)
-        console.log(data)
+        const alertasArray = []
+        data && data.map((alerta, index) => {
+          alertasArray.push(Object.assign(alerta, {checked, 'idAlerta': index}))
+        })
+        setAlertas(alertasArray)   
       })
-      .catch(err => console.log('Erro ao get por data', err));
+      .catch(err => console.log('Erro ao get por data', err))
+      .finally(() => {
+        setOpen(false)
+      });
     }
-
+    
   return (
       <Container>
           <Content>
@@ -43,11 +53,34 @@ export function AlertaScreen() {
                 <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(10) }}>Histórico de Alertas</H1>
             </View>
           </ImageBackground>
-          <Alertas
-            alertas={alertas}
-            expanded={expanded}
-            onPress={() => setExpanded(!expanded)}
-            setSearch
+          <Text style={{ paddingLeft: scale(20), paddingBottom: verticalScale(4), color: COLOR.ORANGE, fontSize: scale(14) }}>Pesquisar</Text>
+            <Content searchBar style={Styles.searchBar}>
+                <Item>
+                    <DatePicker
+                        defaultDate={new Date()}
+                        locale={"br"}
+                        modalTransparent={true}
+                        animationType={"fade"}
+                        androidMode={"default"}
+                        onDateChange={value => setSearch(value)}
+                        disabled={false}
+                    />
+                </Item>
+          </Content>
+          {alertas && alertas.map(alerta => {   
+            return (
+              <Alertas
+                expanded={alerta.checked}  
+                onPress={() => enableDrop(alerta)}
+                setSearch
+                data={`${alerta.data} - ${alerta.dia.split('-')[0]}`}
+                startDate={alerta.horaInicio}
+                endDate={alerta.horaFim}
+                motivo={alerta.motivo}
+              />
+          )})}
+          <Loader
+            open={open}
           />
           {/* <Accordion
             title="08/03/2020 - Domingo"
@@ -64,4 +97,4 @@ export function AlertaScreen() {
           </Content>
       </Container>
   )
-    }
+}
