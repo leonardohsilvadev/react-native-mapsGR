@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react';
 import { View, Text, Button, Thumbnail, Content, Form, Item, Input, Label } from 'native-base';
-import { Alert, StyleSheet, Dimensions } from 'react-native';
+import { Alert, StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {api} from '../../utils/api'
 import LinearGradient from 'react-native-linear-gradient';
@@ -79,7 +79,7 @@ export function LoginScreen() {
               <Text style={{alignSelf: 'flex-end', marginRight: 30,fontSize: 14}}>Esqueceu sua senha?</Text>
               <Button style={Style.btnEntrar} onPress={() => login()}><Text style={{textAlign: "center"}}>Entrar</Text></Button>
           </View>
-          <Thumbnail {...navioProps} />  
+          <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -20 }}/>
         </SafeAreaView>
       </ScrollView>
     </LinearGradient>
