@@ -60,7 +60,7 @@ export function LoginScreen() {
       // AsyncStorage.setItem('email', email)
       dispatch({type: Types.LOGAR, email, token})
     })
-    .catch(err => console.log('Erro ao logar-se', err));
+    .catch(err => Alert.alert('Login ou senha inválido(s).'));
   }
 
   return (

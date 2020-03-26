@@ -64,7 +64,7 @@ export default function Routes() {
     )    
     
     const DrawerStackScreen = () => (
-        <DrawerStack.Navigator initialRouteName="Condicoes" drawerContent={drawerContent}>
+        <DrawerStack.Navigator initialRouteName="Login" drawerContent={drawerContent}>
             <DrawerStack.Screen name="Monitoramento" component={HomeStackScreen} />
             <DrawerStack.Screen name="Condicoes" component={ClimatempoStackScreen} />
             <DrawerStack.Screen name="Login" component={LoginStackScreen} />
