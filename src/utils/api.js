@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export function api() {
     return axios.create({
-        baseURL: 'http://vm-tes-mon-navios.westus2.cloudapp.azure.com:5000/',
+        baseURL: 'http://vm-tes-mon-navios.westus2.cloudapp.azure.com:5000',
         headers: {
             // Authorization: getBearer(token),
             'Content-Type': 'application/json-patch+json',
