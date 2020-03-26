@@ -25,12 +25,10 @@ export const Styles = ScaledSheet.create({
         paddingVertical: '8@vs'
     },
     accordionTitle: {
-        paddingBottom: '24@vs',
         marginRight: '70@vs',
         color: COLOR.LIGHT,
         fontWeight: 'bold',
         fontSize: '12@s',
-        paddingVertical: '8@vs'
     },
     alarmIcon: {
         color: COLOR.LIGHT,

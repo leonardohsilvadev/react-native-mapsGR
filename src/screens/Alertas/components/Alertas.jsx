@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Card, Icon, Content, Item, DatePicker } from 'native-base';
 import { verticalScale, scale } from 'react-native-size-matters';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import { COLOR } from '../../../config/styles';
 import { Styles } from '../styles';
+import DropDownItem from "react-native-drop-down-item";
 
 const gradientProps = {
     start: { x: 0, y: 0 },
@@ -13,22 +14,27 @@ const gradientProps = {
     style: Styles.gradient
 };
 
-export const Alertas = ({ expanded, onPress, setSearch, data, startDate, endDate, motivo }) => {
+export function Alertas({ data, startDate, endDate, motivo }) {
+    const [expanded, setExpanded] = useState(false);
+
+    const toggleExpand = () => {
+        setExpanded(!expanded);
+    }
+
     return (
-        <View>            
-            <Content>
+        <View>    
+            <TouchableOpacity onPress={toggleExpand} >        
                 <LinearGradient {...gradientProps}>
-                    <TouchableOpacity style={{ height: expanded ? scale(120) : scale(40), paddingHorizontal: scale(20) }} onPress={onPress}>
-                    <Card transparent>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <DropDownItem
+                    contentVisible={false}
+                    header={
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: scale(20), paddingVertical: verticalScale(5) }}>
                             <Icon name="bell" type="MaterialCommunityIcons" style={Styles.bellIcon} />
-                            <View>                            
                                 <Text style={Styles.accordionTitle}>{data}</Text>
-                            </View>
                             <Icon name="alarm-light" type="MaterialCommunityIcons" style={Styles.alarmIcon} />
                             <Icon name= {expanded ? "md-arrow-dropup-circle" : "md-arrow-dropdown-circle"} type="Ionicons" style={Styles.upDownIcon} />
                         </View>
-
+                    }>
                         <View style={Styles.viewInfo}>
                             <Icon name="android-messages" type="MaterialCommunityIcons" style={Styles.messageIcon} />
                             <Text style={Styles.itemTitle}>
@@ -46,10 +52,9 @@ export const Alertas = ({ expanded, onPress, setSearch, data, startDate, endDate
                             <Text style={Styles.itemTitle}>Fim: </Text>
                             <Text style={Styles.endDate}>{endDate}</Text>
                         </View>
-                        </Card>
-                        </TouchableOpacity>
-                    </LinearGradient>
-            </Content>
+                    </DropDownItem>
+                </LinearGradient>
+            </TouchableOpacity>
         </View>
     )
 }

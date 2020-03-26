@@ -28,17 +28,25 @@ export function AlertaScreen() {
 
       api('').get(url)
       .then(({ data }) => {
-        const alertasArray = []
-        data && data.map((alerta, index) => {
-          alertasArray.push(Object.assign(alerta, {checked, 'idAlerta': index}))
-        })
-        setAlertas(alertasArray)   
+        setAlertas(data);
+        // const alertasArray = []
+        // data && data.map((alerta, index) => {
+        //   alertasArray.push(Object.assign(alerta, {checked, 'idAlerta': index}))
+        // })
+        // setAlertas(alertasArray);
+        // setAlertasFiltrados(alertasArray);
       })
       .catch(err => console.log('Erro ao get por data', err))
       .finally(() => {
         setOpen(false)
       });
     }
+
+    // function openAccordion(alert) {
+    //   const listaAlertas = Array.from(alertas).filter(item => item.id !== alert.idAlerta);
+    //   listaAlertas.push({ ...alert, checked: !alert.checked })
+    //   alert = {...alert, checked: !alert.checked};
+    // }
     
   return (
       <Container>
@@ -54,7 +62,7 @@ export function AlertaScreen() {
                 <H1 style={{ color: COLOR.ACCENT, fontWeight: 'bold', marginLeft: scale(10) }}>Histórico de Alertas</H1>
             </View>
           </ImageBackground>
-          <Text style={{ paddingLeft: scale(20), paddingBottom: verticalScale(4), color: COLOR.ORANGE, fontSize: scale(14) }}>Pesquisar</Text>
+          {/* <Text style={{ paddingLeft: scale(20), paddingBottom: verticalScale(4), color: COLOR.ORANGE, fontSize: scale(14) }}>Pesquisar</Text>
             <Content searchBar style={Styles.searchBar}>
                 <Item>
                     <DatePicker
@@ -66,14 +74,11 @@ export function AlertaScreen() {
                         onDateChange={value => setSearch(value)}
                         disabled={false}
                     />
-                </Item>
-          </Content>
+                </Item> 
+          </Content> */}
           {alertas && alertas.map(alerta => {   
             return (
               <Alertas
-                expanded={alerta.checked}  
-                onPress={() => enableDrop(alerta)}
-                setSearch
                 data={`${alerta.data} - ${capitalize(alerta.dia.split('-')[0])}`}
                 startDate={alerta.horaInicio}
                 endDate={alerta.horaFim}
