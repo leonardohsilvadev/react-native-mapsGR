@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { COLOR, Styles } from '../../config/styles';
 import { SafeAreaView, ScrollView } from 'react-native';
 import {Style} from './styles'
-import { Hr } from '../../components/Hr'
+import { Hr } from '../../components';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { Types } from '../../store/ducks/authenticate';

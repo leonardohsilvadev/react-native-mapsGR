@@ -34,6 +34,12 @@ export function AlertaScreen() {
         setOpen(false)
       });
     }
+
+    // function openAccordion(alert) {
+    //   const listaAlertas = Array.from(alertas).filter(item => item.id !== alert.idAlerta);
+    //   listaAlertas.push({ ...alert, checked: !alert.checked })
+    //   alert = {...alert, checked: !alert.checked};
+    // }
     
   return (
       <Container>
