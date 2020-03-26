@@ -8,25 +8,31 @@ import { COLOR } from '../../config/styles';
 import { api, handleRequestError } from '../../utils/api';
 import { Passagens } from './components/Passagens';
 import moment from 'moment'
+import { useSelector } from 'react-redux';
+import { Loader } from '../../components';
 
 export function PassagensScreen() {
     const [passagens, setPassagens] = useState([]);
     const [date, setDate] = useState(new Date()) 
+    const [open, setOpen] = useState(true) 
+    const email = useSelector(({authenticate: {email}}) => email)
 
     useEffect(() => {
       getPorData()
     }, [date]);
 
     async function getPorData() {  
-      let email = await AsyncStorage.getItem('email')
       let url = `/api/HistoricoNavios/getPorData?email=${email}&data=${moment(date).format('DD/MM/YYYY')}&menor=0&maior=23`
-      console.log(url)
+
       api('').get(url)
       .then(({ data }) => {
         console.log(data)
         setPassagens(data)
       })
-      .catch(err => console.log('Erro ao get por data', err));
+      .catch(err => console.log('Erro ao get por data', err))
+      .finally(() => {
+        setOpen(false);
+      });
     }
 
   return (
@@ -50,6 +56,9 @@ export function PassagensScreen() {
           <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           </Content>
+          <Loader
+            open={open}
+          />
       </Container>
   )
     }

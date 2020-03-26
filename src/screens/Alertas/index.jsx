@@ -7,7 +7,7 @@ import { COLOR } from '../../config/styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Alertas } from './components/Alertas';
 import { api, handleRequestError } from '../../utils/api';
-import { Loader } from '../../components/Loader';
+import { Loader } from '../../components';
 import { capitalize } from '../../utils/functions'
 
 export function AlertaScreen() {
@@ -15,7 +15,6 @@ export function AlertaScreen() {
     const [open, setOpen] = useState(false)
     const [search, setSearch] = useState(new Date());
     const [alertas, setAlertas] = useState([]);
-    const [alertasFiltrados, setAlertasFiltrados] = useState([]);
     const checked = false
 
     useEffect(() => {
@@ -29,24 +28,12 @@ export function AlertaScreen() {
       api('').get(url)
       .then(({ data }) => {
         setAlertas(data);
-        // const alertasArray = []
-        // data && data.map((alerta, index) => {
-        //   alertasArray.push(Object.assign(alerta, {checked, 'idAlerta': index}))
-        // })
-        // setAlertas(alertasArray);
-        // setAlertasFiltrados(alertasArray);
       })
       .catch(err => console.log('Erro ao get por data', err))
       .finally(() => {
         setOpen(false)
       });
     }
-
-    // function openAccordion(alert) {
-    //   const listaAlertas = Array.from(alertas).filter(item => item.id !== alert.idAlerta);
-    //   listaAlertas.push({ ...alert, checked: !alert.checked })
-    //   alert = {...alert, checked: !alert.checked};
-    // }
     
   return (
       <Container>
@@ -88,16 +75,6 @@ export function AlertaScreen() {
           <Loader
             open={open}
           />
-          {/* <Accordion
-            title="08/03/2020 - Domingo"
-            expanded={expanded}
-            onPress={() => setExpanded(!expanded)}
-            startDate="02:29:16"
-            endDate="02:44:16"
-            shipVelocity="6.9"
-            shipName="SAN CLEMENTE"
-            message="Atenção, Fernando! Alarme disparado as 12:29:04"
-          /> */}
           <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           </Content>

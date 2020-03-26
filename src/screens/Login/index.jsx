@@ -9,6 +9,8 @@ import { SafeAreaView, ScrollView } from 'react-native';
 import {Style} from './styles'
 import { Hr } from '../../components/Hr'
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { Types } from '../../store/ducks/authenticate';
 
 const gradientProps = {
   start: { x: 1, y: 0 },
@@ -41,6 +43,7 @@ export function LoginScreen() {
   
   const [email, setEmailLogin] = useState('')
   const [password, setSenhaLogin] = useState('')
+  const dispatch = useDispatch();
 
   useEffect(() => {
   }, [])
@@ -52,10 +55,10 @@ export function LoginScreen() {
       password
     }
     api('').post(url, body)
-    .then(({ data }) => {
-      console.log(data)
+    .then(({ data: {token} }) => {
       navigation.navigate('Monitoramento')
-      AsyncStorage.setItem('email', email)
+      // AsyncStorage.setItem('email', email)
+      dispatch({type: Types.LOGAR, email, token})
     })
     .catch(err => console.log('Erro ao logar-se', err));
   }
