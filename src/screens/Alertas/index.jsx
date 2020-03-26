@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Alertas } from './components/Alertas';
 import { api, handleRequestError } from '../../utils/api';
 import { Loader } from '../../components/Loader';
+import { capitalize } from '../../utils/functions'
 
 export function AlertaScreen() {
     const [expanded, setExpanded] = useState(false);
@@ -73,7 +74,7 @@ export function AlertaScreen() {
                 expanded={alerta.checked}  
                 onPress={() => enableDrop(alerta)}
                 setSearch
-                data={`${alerta.data} - ${alerta.dia.split('-')[0]}`}
+                data={`${alerta.data} - ${capitalize(alerta.dia.split('-')[0])}`}
                 startDate={alerta.horaInicio}
                 endDate={alerta.horaFim}
                 motivo={alerta.motivo}

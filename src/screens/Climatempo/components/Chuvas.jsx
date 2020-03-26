@@ -6,6 +6,8 @@ import { Styles } from '../styles';
 import { style, styleShadow } from '../styles'
 import { COLOR } from '../../../config/styles';
 import { scale } from 'react-native-size-matters';
+import { capitalize } from '../../../utils/functions'
+
 export const Chuvas = ({chuvas}) => {
     const navigation = useNavigation();
     
@@ -38,7 +40,7 @@ export const Chuvas = ({chuvas}) => {
                 <Card style={style.card} transparent>
                     <View style={{marginHorizontal: 0}}>
                         <Text style={style.titleCard}>
-                            {chuva.dia.split('-')[0]}
+                            {capitalize(chuva.dia.split('-')[0])}
                         </Text>
                         <Text style={style.date}>{chuva.data}</Text>
                         </View>
