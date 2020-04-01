@@ -15,6 +15,7 @@ import { capitalize } from '../../utils/functions';
 import LinearGradient from 'react-native-linear-gradient';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import DropDownItem from 'react-native-drop-down-item';
+import { HoraAlturaMares } from './components/HoraAlturaMares';
 
 export function ClimatempoScreen() {
 
@@ -27,10 +28,11 @@ export function ClimatempoScreen() {
         end: { x: 1, y: 0 },
         colors: [COLOR.MARE_LAST, COLOR.MARE_INITIAL],
     };
-    const gradientProps = {
+    
+    const cardTransparent = {
         start: { x: 0, y: 0 },
         end: { x: 1, y: 0 },
-        colors: [COLOR.SECONDARY, COLOR.SECONDARY_ACCENT],
+        colors: [COLOR.LIGHT, COLOR.LIGHT]
     };
 
     const [previsaoHoje, setPrevisaoHoje] = useState('')
@@ -45,7 +47,7 @@ export function ClimatempoScreen() {
         getMareAtual()
         getMareSemana()
     }, [])
-
+    
     function getPrevisao() {  
         let url = '/api/ClimaTempo/getPrevisaoSemana'
 
@@ -169,9 +171,14 @@ export function ClimatempoScreen() {
                 {mareSemana && mareSemana.map(mare => (
                     <Mares
                         dia={capitalize(mare.dia.split('-')[0])}
-                        data={mare.data}
+                        data={mare.data}                            
+                        horaAlturas={mare.horaAlturas}                   
                     />
                 ))}
+                <LinearGradient {...cardTransparent}>
+                    <View style={StylesAccordion.viewInfo}>
+                    </View>          
+                </LinearGradient>  
             </View>
             <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -50 }}/>
             <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -50 }}/>

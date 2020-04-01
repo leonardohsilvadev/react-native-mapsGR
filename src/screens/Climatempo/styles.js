@@ -3,6 +3,8 @@ import { Dimensions, StyleSheet } from 'react-native'
 import { COLOR } from '../../config/styles';
 
 export const style = ScaledSheet.create({    
+    lineMares:{
+    },
     label:{
         color: COLOR.ORANGE,
         width: '300@vs',
@@ -92,8 +94,10 @@ export const StylesAccordion = ScaledSheet.create({
     viewInfo: {
         flexDirection: 'row',
         paddingBottom: '5@vs',
-        marginTop: '20@vs',
-        justifyContent: 'flex-end'
+        alignContent: 'center',
+        marginVertical: '10@vs',
+        marginRight: '20@s',
+        justifyContent: 'flex-end',
     },
     itemTitle: {
         fontSize: '10@s',
