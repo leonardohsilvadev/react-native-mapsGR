@@ -43,7 +43,7 @@ export const Styles = ScaledSheet.create({
     },
     viewInfo: {
         flexDirection: 'row',
-        paddingBottom: '5@vs'
+        marginTop: '10@vs'
     },
     playIcon: {
         color: COLOR.LIGHT,

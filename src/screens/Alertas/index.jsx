@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react';
 import { View, Container, H1, Icon, Item, Button} from 'native-base';
-import { Alert, StyleSheet, Dimensions, ImageBackground, FlatList, Text } from 'react-native';
+import { Alert, StyleSheet, Dimensions, ImageBackground, FlatList, Text, ScrollView } from 'react-native';
 import { Styles } from './styles';
 import { verticalScale, scale } from 'react-native-size-matters';
 import { COLOR } from '../../config/styles';
@@ -111,21 +111,23 @@ export function AlertaScreen() {
                 }
             </View>
           </View>
+          <ScrollView>
           <View>
-            <FlatList
-              data={alertas.reverse()}
-              renderItem={({ item }) => (
-                <Alertas
-                    data={`${item.data} - ${capitalize(item.dia.split('-')[0])}`}
-                    startDate={item.horaInicio}
-                    endDate={item.horaFim}
-                    motivo={item.motivo}
-                />
-              )}
-            />
+              <FlatList
+                data={alertas.reverse()}
+                renderItem={({ item }) => (
+                    <Alertas
+                      data={`${item.data} - ${capitalize(item.dia.split('-')[0])}`}
+                      startDate={item.horaInicio}
+                      endDate={item.horaFim}
+                      motivo={item.motivo}
+                    />
+                )}
+              />
           </View>
           <ImageBackground source={require('../../assets/borda-topo.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
           <ImageBackground source={require('../../assets/ship-opacity.png')} style={{ width: Dimensions.get('window').width, height: 100, marginTop: -30 }}/>
+          </ScrollView>
       </Container>
   )
 }

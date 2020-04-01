@@ -5,7 +5,6 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import { COLOR } from '../../../config/styles';
 import { Styles } from '../styles';
-import DropDownItem from "react-native-drop-down-item";
 
 const gradientProps = {
     start: { x: 0, y: 0 },
@@ -23,18 +22,15 @@ export function Alertas({ data, startDate, endDate, motivo }) {
 
     return (
         <View>    
-            <TouchableOpacity onPress={toggleExpand} >        
-                <LinearGradient {...gradientProps}>
-                    <DropDownItem
-                    contentVisible={false}
-                    header={
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: scale(20), paddingVertical: verticalScale(5) }}>
+            <LinearGradient {...gradientProps}>
+                <TouchableOpacity style={{ height: expanded ? scale(120) : scale(50) }} onPress={toggleExpand}>    
+                    <Card transparent> 
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: scale(20) }}>
                             <Icon name="bell" type="MaterialCommunityIcons" style={Styles.bellIcon} />
                                 <Text style={Styles.accordionTitle}>{data}</Text>
                             <Icon name="alarm-light" type="MaterialCommunityIcons" style={Styles.alarmIcon} />
                             <Icon name= {expanded ? "md-arrow-dropup-circle" : "md-arrow-dropdown-circle"} type="Ionicons" style={Styles.upDownIcon} />
                         </View>
-                    }>
                         <View style={Styles.viewInfo}>
                             <Icon name="android-messages" type="MaterialCommunityIcons" style={Styles.messageIcon} />
                             <Text style={Styles.itemTitle}>
@@ -52,9 +48,9 @@ export function Alertas({ data, startDate, endDate, motivo }) {
                             <Text style={Styles.itemTitle}>Fim: </Text>
                             <Text style={Styles.endDate}>{endDate}</Text>
                         </View>
-                    </DropDownItem>
-                </LinearGradient>
-            </TouchableOpacity>
+                    </Card>
+                </TouchableOpacity>
+            </LinearGradient>
         </View>
     )
 }
